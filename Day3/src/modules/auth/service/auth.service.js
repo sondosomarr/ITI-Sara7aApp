@@ -15,7 +15,7 @@ export const register = async  ( req, res)=>{
         return res.status(409).json({message: "email already exists"})
     }
     const hashedPassword =  bcrypt.hashSync(password, +process.env.SALT_ROUND)
-   const cipherPhone= CryptoJS.AES.encrypt(phone,
+   const cipherPhone= cryptoJs.AES.encrypt(phone,
         process.env.SECRET_KEY
     )
     
