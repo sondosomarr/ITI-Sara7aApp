@@ -15,13 +15,13 @@ export const register = async  ( req, res)=>{
         return res.status(409).json({message: "email already exists"})
     }
     const hashedPassword =  bcrypt.hashSync(password, +process.env.SALT_ROUND)
-    cipherPhone= CryptoJS.AES.encrypt(phone,
-        
+   const cipherPhone= CryptoJS.AES.encrypt(phone,
+        process.env.SECRET_KEY
     )
     
     const user = await userModel.create({userName,email,password:hashedPassword})
     // email integration
-    sendEmail(email,'this message from nodemailer','confirm registration')
+    await sendEmail(email,'this message from nodemailer','confirm registration')
     const objUser = user.toObject()
     delete objUser.password
 
