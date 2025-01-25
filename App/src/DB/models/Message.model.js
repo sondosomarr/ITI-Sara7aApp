@@ -9,7 +9,7 @@ const messageSchema = new Schema({
         required:[true,"this field is required"],
     },
     receiverId:{
-        type:Types.ObjectId(),
+        type:Types.ObjectId,
        ref:"User"
     },
    

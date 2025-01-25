@@ -1,18 +1,21 @@
-// import{model, Schema} from "mongoose";
+import{model, Schema} from "mongoose";
 
 
 
-// const photoSchema = new Schema({
-//     title:{
-//         type:String,
+const photoSchema = new Schema({
+    title:{
+        type:String,
+    },
     
     
-//     image: String,
+    image:{
+        type:String,
+        required:[true,"this field is required"]
+    } 
    
    
-   
-// }, {timestamp:true})
+}, {timestamp:true})
 
-// const userModel = model("",userSchema)
+const photoModel = model("Photo",photoSchema)
 
-// export default userModel;
+export default photoModel;
